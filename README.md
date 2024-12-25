@@ -12,5 +12,5 @@ The Healthcare Appointment Booking System is designed to allow patients to book 
 | 2  | Girma Enkuchile | UGR/8130/15|
 | 3  | Haset Dereje    | UGR/7979/15|
 | 4  | Milki Legesse   | UGR/9040/15|
-| 5  | Solome Zewdu    | UGR/4112/15|
+| 5  | Solome Zewdu    | UGR/4112/14|
 
