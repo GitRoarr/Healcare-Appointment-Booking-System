@@ -1,3 +1,4 @@
+
 import { Injectable } from '@nestjs/common';
 import { User } from './entities/users.entity';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -11,11 +12,12 @@ export class UsersService {
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
   ) {}
-  findAll(queryParams: PaginationQueryDto) {
+  findAll(queryParams: PaginationQueryDto, role: string) {
     const { limit, offset } = queryParams;
     return this.userRepository.find({
       take: limit,
       skip: offset,
+      where: { role: role },
     });
   }
 
