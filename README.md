@@ -8,7 +8,7 @@ The Healthcare Appointment Booking System is designed to allow patients to book 
 
 | No | Name            | ID         |
 |----|:---------------:|:----------:|
-| 1  | Dawit Misgana   | UGR/8170/15|
+| 1  | Dawit Misgna   | UGR/8170/15|
 | 2  | Girma Enkuchile | UGR/8130/15|
 | 3  | Hasset Dejene   | UGR/7979/15|
 | 4  | Milki Legesse   | UGR/9040/15|
