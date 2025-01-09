@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "image": "photos/images.jfif",
+        "title": "General Internal Medicine",
+        "description": "Our expert physicians provide comprehensive care for chronic and acute illnesses, focusing on diagnosis, treatment, and prevention of a wide range of medical conditions."
+    },
+    {
+        "id": 2,
+        "image": "photos/General_Surgery.jpg",
+        "title": "General Surgery",
+        "description": "Our surgical team is skilled in performing a variety of procedures, from minimally invasive techniques to complex surgeries, ensuring patient safety and quick recovery."
+    },
+    {
+        "id": 3,
+        "image": "photos/Cardiology_Services.webp",
+        "title": "Cardiology Services",
+        "description": "Specialized in diagnosing and treating heart diseases, offering services like ECG, stress tests, echocardiography, and interventional cardiology procedures."
+    },
+    {
+        "id": 4,
+        "image": "photos/Eye_Care.jpeg",
+        "title": "Eye Care",
+        "description": "Comprehensive eye exams, treatments for vision impairments, and advanced surgical interventions for cataracts, glaucoma, and other eye conditions."
+    },
+    {
+        "id": 5,
+        "image": "photos/Dental_Care.avif",
+        "title": "Dental Care",
+        "description": "From routine cleanings and check-ups to advanced restorative and cosmetic dentistry, we ensure your oral health and a confident smile."
+    },
+    {
+        "id": 6,
+        "image": "photos/Emergency_Care.jfif",
+        "title": "Emergency Care",
+        "description": "24/7 emergency services for critical and urgent medical needs, staffed by highly trained professionals ready to respond quickly"
+    }
+]
