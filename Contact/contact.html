@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare - Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <style>
+        .sidebar {
+            background-color: #1a1f2c;
+            color: white;
+            height: 100vh;
+            width: 200px;
+            position: fixed;
+        }
+        .main-content {
+            margin-left: 200px;
+            padding: 20px;
+        }
+        .contact-info-card {
+            border-left: 4px solid #0d6efd;
+            background-color: #f8f9fa;
+        }
+        .success-message {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .avatar-container {
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .btn-primary {
+            background-color: #4A5568;
+
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="/Home">
+                    <div class="logo-placeholder me-2">
+                        <i class="bi bi-plus-circle-fill text-primary"></i>
+                    </div>
+                    <span class="h5 mb-0">Fetan<span class="text-primary">Care</span></span>
+                </a>
+    
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link px-3 active" href="/Home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" id="dashboard" href="">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="/service">Our Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="/contact">Contact Us</a>
+                        </li>
+                    </ul>
+    <div class="d-flex align-items-center gap-3">
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Main Content -->
+        <div class="main-content flex-grow-1">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h2 class="mb-4">Contact Us</h2>
+                        
+                        <!-- Success Message -->
+                        <div id="successMessage" class="success-message alert alert-success mb-4" role="alert">
+                            <i class="bi bi-check-circle-fill me-2"></i>
+                            Thank you for your message! We'll get back to you soon.
+                        </div>
+
+                        <!-- Contact Form -->
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="contactForm" novalidate>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="firstName" class="form-label">First Name</label>
+                                            <input type="text" class="form-control" id="firstName" required>
+                                            <div class="invalid-feedback">
+                                                Please enter your first name
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="lastName" class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" id="lastName" required>
+                                            <div class="invalid-feedback">
+                                                Please enter your last name
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                            <div class="invalid-feedback">
+                                                Please enter a valid email address
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="phone" class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="phone" required>
+                                            <div class="invalid-feedback">
+                                                Please enter your phone number
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="subject" class="form-label">Subject</label>
+                                            <input type="text" class="form-control" id="subject" required>
+                                            <div class="invalid-feedback">
+                                                Please enter a subject
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="message" class="form-label">Message</label>
+                                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                                            <div class="invalid-feedback">
+                                                Please enter your message
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="bi bi-send me-2"></i>Send Message
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <!-- Contact Information -->
+                        <div class="card contact-info-card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+                                    Location
+                                </h5>
+                                <p class="card-text">Addis Ababa</p>
+                            </div>
+                        </div>
+
+                        <div class="card contact-info-card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-telephone-fill text-primary me-2"></i>
+                                    Phone
+                                </h5>
+                                <p class="card-text">
+                                    <a href="tel:+1234567890" class="text-decoration-none">+251-123-456-789</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card contact-info-card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-envelope-fill text-primary me-2"></i>
+                                    Email
+                                </h5>
+                                <p class="card-text">
+                                    <a href="mailto:info@healthcare.com" class="text-decoration-none text-black">Fetancare@healthcare.com</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card contact-info-card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-clock-fill text-primary me-2"></i>
+                                    Working Hours
+                                </h5>
+                                <p class="card-text mb-1">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p class="card-text mb-1">Saturday: 9:00 AM - 1:00 PM</p>
+                                <p class="card-text">Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="contact.js" defer></script>
+    <script defer>
+        const role = sessionStorage.getItem("role")
+        document.getElementById("dashboard").addEventListener("click", () => {
+                     if (role === 'admin') {
+                        window.location.href = 'http://localhost:3000/admin/appointment';
+                    } else if (role === 'patient') {
+                        window.location.href = 'http://localhost:3000/patient/schedule';
+                    } else {
+                        window.location.href = 'http://localhost:3000/doctor/dashboard';
+                    }})
+         
+        // Profile Image Upload
+        document.getElementById('uploadProfileImage')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = (e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const profileImage = document.getElementById('profileImage');
+                        if (profileImage && e.target ?.result) {
+                            profileImage.src = e.target.result;
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        });
+
+        // Navbar Scroll Animation
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            }
+        });
+// Book Appointment Button
+        document.getElementById('bookAppointmentBtn')?.addEventListener('click', () => {
+            console.log('Booking appointment...');
+            // Add booking logic here
+        });
+
+        // Logout Button
+        document.getElementById('logoutBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('User logged out');
+            // Add logout logic here
+        });
+    </script>
+</body>
+</html>

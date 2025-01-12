@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --sidebar-bg: #2A3342;
+            --card-blue: #E8F1FF;
+            --card-pink: #FFE8EC;
+            --card-light-blue: #E8F8FF;
+        }
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 20px;
+        }
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar-menu li {
+            margin-bottom: 15px;
+        }
+        .sidebar-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .sidebar-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .sidebar-menu i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        .doctor-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .remove {
+            display: none;
+        }
+
+        body, html {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    .container-fluid {
+        flex: 1; /* Pushes the footer down */
+    }
+
+    footer {
+    margin-left: 250px; /* Match the width of the sidebar */
+    width: calc(100% - 250px); /* Adjust the width to exclude the sidebar */
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+
+    .main-content {
+        margin-left: 250px;
+        padding: 20px;
+        min-height: calc(100vh - 70px - 200px); /* Navbar and footer heights accounted */
+    }
+        .cancel-btn {
+            background-color: #00a884;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .cancel-btn:hover {
+            background-color: #008f72;
+        }
+        .avatar-container {
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .rating {
+            color: #fbbf24;
+        }
+        .time {
+            color: #4a5568;
+        }
+        .navbar.fixed-top + .container-fluid {
+            margin-top: 70px; /* Adjust to avoid overlapping with the fixed navbar */
+        }
+
+.no-appointments-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+    text-align: center;
+}
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    min-height: calc(100vh - 70px - 200px);
+    width: calc(100% - 250px);
+}
+
+footer {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/Home">
+                <div class="logo-placeholder me-2">
+                    <i class="bi bi-plus-circle-fill text-primary"></i>
+                </div>
+                <span class="h5 mb-0">Fetan<span class="text-primary">Care</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link px-3 active" href="/Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="" id="dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="/service">Our Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="/contact">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="dropdown">
+                        <button class="btn btn-link p-0 position-relative" data-bs-toggle="dropdown">
+                            <div class="avatar-container bg-light">
+                                <img src="https://as1.ftcdn.net/v2/jpg/03/46/83/96/1000_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" class="w-100 h-100 object-fit-cover" alt="Profile" id="profileImage">
+                            </div>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" id="uploadProfileImage">Change Photo</a></li>
+                           
+                           
+                        </ul>
+                    </div>
+                    <a href="#logout" class="btn btn-outline-primary px-4">Logout</a>
+                   
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="mb-4">
+                    <h5 class="text-white mb-3">Patient Dashboard</h5>
+                </div>
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="http://localhost:3000/patient/schedule" class="active">
+                            <i class="bi bi-calendar-check"></i>
+                            Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:3000/patient/doctor">
+                            <i class="bi bi-people"></i>
+                            Doctors
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 p-4 main-content">
+                        <h2 class="mb-4">My Appointments</h2>
+                        <div id="appointments-list"></div>
+                        <div id="no-appointments" class="no-appointments-container d-none">
+                            <div class="no-appointments-content">
+                                <i class="bi bi-calendar-x me-3" style="font-size: 2rem;"></i>
+                                <span>No Appointments Available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <!-- Main Content -->
+            <!-- <div class="col-md-9 col-lg-10 p-4 main-content">
+                <h2 class="mb-4">My Appointments</h2>
+                <div id="appointments-list">
+
+                </div>
+            </div> -->
+            <div id="no-appointments" class="no-appointments-container d-none">
+                <div class="no-appointments-content">
+                    <i class="bi bi-calendar-x me-3" style="font-size: 2rem;"></i>
+                    <span>No Appointments Available</span>
+                </div>
+            </div>
+            </div>
+        
+        
+    </div><footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h3 class="h4 mb-4">FetanCare</h3>
+                    <p class="text-muted mb-4">
+                        Your trusted healthcare booking platform.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="btn btn-outline-light btn-sm me-2">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-4">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="bi bi-envelope me-2"></i> contact@fetancare.com
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-telephone me-2"></i> +251-123-456-789
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-geo-alt me-2"></i> Addis Ababa, Ethiopia
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div class="col-lg-4">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Our Services</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Book Appointment</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/Dashboard/Patient Dashboard/schedule.js"></script>
+    <script>
+        // Profile Image Upload
+        document.getElementById('uploadProfileImage')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    const email = sessionStorage.getItem('email')
+    input.onchange = (e) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const profileImage = document.getElementById('profileImage');
+                if (profileImage && e.target?.result) {
+                    profileImage.src = e.target.result;
+                    fetch('http://localhost:3000/profile/update-profile', {
+                    method: 'PATCH', 
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        baseurl:e.target.result, 
+                        email: email,  
+                    }),
+                    });
+                    console.log(e.target.result);
+
+                }
+            };
+            reader.readAsDataURL(file); // This triggers the asynchronous read
+        }
+    };
+    input.click();
+});
+
+        // Navbar Scroll Animation
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            }
+        });
+// Book Appointment Button
+       
+
+        // Logout Button
+        
+        
+    </script>
+</body>
+</html>
