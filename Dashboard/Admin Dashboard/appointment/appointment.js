@@ -117,9 +117,7 @@ class AppointmentManager {
         this.renderAppointments();
     }
 
-    /**
-     * Open the new appointment modal.
-     */
+    
     openNewAppointmentModal() {
         const form = document.getElementById('appointmentForm');
         if (form) {
